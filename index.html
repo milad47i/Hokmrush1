@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17152c"><title>HokmRush</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{color-scheme:dark;--bg:#151329;--panel:rgba(255,255,255,.105);--line:rgba(255,255,255,.17);--muted:#c5c0df;--pink:#ff8cb8;--blue:#8cd9ff;--gold:#ffd98a}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff;background:radial-gradient(ellipse at 12% 8%,#75416d 0,transparent 34%),radial-gradient(ellipse at 88% 22%,#3b4f8c 0,transparent 38%),linear-gradient(155deg,#17152e,#29203f 52%,#101a35);min-height:100vh;padding:14px 12px calc(20px + env(safe-area-inset-bottom));}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.24;background:linear-gradient(180deg,transparent 55%,#b9d9ff22),radial-gradient(ellipse at bottom,#a7d9ff33,transparent 45%)}
+main{max-width:520px;margin:auto;position:relative;display:grid;gap:12px}.glass{background:var(--panel);border:1px solid var(--line);box-shadow:0 10px 30px #05051230,inset 0 1px 0 #ffffff16;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:20px;padding:13px}.top{display:flex;align-items:center;justify-content:space-between;gap:8px}.brand{font-weight:900;letter-spacing:.3px;font-size:20px}.pill{border:1px solid #ffffff2b;border-radius:999px;background:#ffffff12;padding:6px 10px;font-size:12px;color:#f4edff}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.meta span{font-size:12px;color:#f0eaff;background:#100f2544;border:1px solid #ffffff17;border-radius:10px;padding:7px 9px}.score{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.team{background:#ffffff0d;border:1px solid #ffffff1b;border-radius:14px;padding:9px;text-align:center}.team strong{font-size:23px;display:block}.team small{color:var(--muted)}.players{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.player{border:1px solid #ffffff20;border-radius:14px;padding:9px;background:linear-gradient(130deg,#ffffff16,#ffffff07);min-height:60px}.player.active{border-color:var(--gold);box-shadow:0 0 0 1px #ffd98a22,inset 0 0 22px #ffd98a12}.player .name{font-weight:750;font-size:14px}.player .sub{color:var(--muted);font-size:11px;margin-top:3px}.center{margin-top:10px;border-radius:17px;border:1px solid #ffffff20;background:#090a1f40;padding:12px;text-align:center}.center h3{margin:0 0 9px;font-size:13px;color:#e5defd}.trick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.playing{border-radius:12px;background:#f8f5ff;color:#211c36;padding:8px 2px;min-height:70px;display:flex;flex-direction:column;justify-content:center;align-items:center;box-shadow:0 5px 12px #0002}.playing .rank{font-size:21px;font-weight:900;line-height:1.2}.playing small{font-size:10px;color:#635a7b;margin-top:4px}.red{color:#d72f5c!important}.empty{background:#ffffff08;border:1px dashed #ffffff2b;color:#c8c2dd}.turn{margin-top:10px;padding:10px;border-radius:13px;text-align:center;background:linear-gradient(90deg,#ffffff12,#ffdf8a18);border:1px solid #ffffff1b;font-weight:800;font-size:13px}.section-title{font-size:15px;font-weight:850;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.section-title small{font-weight:500;font-size:11px;color:var(--muted)}.hand{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.card{border:1px solid #ffffff65;border-radius:12px;background:linear-gradient(145deg,#ffffffef,#deddf2d9);color:#262039;min-height:63px;padding:6px 1px;font:800 18px system-ui;box-shadow:0 5px 12px #08071b35;cursor:pointer;transition:transform .12s,filter .12s}.card:active{transform:translateY(2px) scale(.97)}.card:disabled{opacity:.35;filter:grayscale(1)}.card .suit{font-size:14px;display:block;margin-top:1px}.card.redcard{color:#d42b58}.hint{font-size:11px;color:var(--muted);margin-top:9px;line-height:1.7}.history{display:flex;flex-wrap:wrap;gap:7px}.history span{border:1px solid #ffffff20;background:#ffffff0d;padding:7px 9px;border-radius:11px;font-size:12px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.action{border:1px solid #ffffff25;border-radius:13px;padding:11px;background:#ffffff12;color:white;font-weight:750;font-size:13px}.notice{color:#ded8f4;font-size:11px;line-height:1.8;text-align:center;padding:0 8px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#141126ee;border:1px solid #ffffff25;border-radius:13px;padding:10px 14px;font-size:13px;display:none;max-width:90%;z-index:5}
+</style></head>
+<body><main>
+<section class="glass">
+ <div class="top"><div class="brand">👑 HokmRush</div><div class="pill" id="round">دور ۱ از ۵</div></div>
+ <div class="meta"><span>🎴 حکم</span><span>♥️ خال حکم: دل</span><span>🏠 HR-4827</span></div>
+ <div class="score"><div class="team"><small>تیم شما</small><strong id="scoreA">۲</strong><small>علی و شما</small></div><div class="team"><small>تیم حریف</small><strong id="scoreB">۱</strong><small>رضا و مهدی</small></div></div>
+ <div class="players">
+  <div class="player"><div class="name">👤 رضا</div><div class="sub">تیم حریف · ۸ کارت</div></div>
+  <div class="player active"><div class="name">👑 علی · حاکم</div><div class="sub">تیم شما · ۸ کارت</div></div>
+  <div class="player"><div class="name">👤 مهدی</div><div class="sub">تیم حریف · ۸ کارت</div></div>
+  <div class="player active"><div class="name">🟢 شما</div><div class="sub" id="turnText">نوبت شماست</div></div>
+ </div>
+ <div class="center"><h3>🎴 کارت‌های روی میز</h3><div class="trick" id="trick"><div class="playing"><span class="rank red">A♥</span><small>علی</small></div><div class="playing"><span class="rank">K♠</span><small>رضا</small></div><div class="playing empty"><span class="rank">—</span><small>مهدی</small></div><div class="playing empty"><span class="rank">—</span><small>شما</small></div></div></div>
+ <div class="turn" id="status">⏳ نوبت شماست · انتخاب کارت برای پیش‌نمایش</div>
+</section>
+<section class="glass"><div class="section-title"><span>🃏 کارت‌های شما</span><small id="handCount">۸ کارت</small></div><div class="hand" id="hand"></div><div class="hint">کارت را لمس کن تا انتخاب آن را ببینی. این نسخه نمایشی است؛ برای مسابقه واقعی باید به موتور بازی پایتون متصل شود.</div></section>
+<section class="glass"><div class="section-title"><span>📜 کارت‌های بازی‌شده</span><small>آخرین دست</small></div><div class="history" id="history"><span>👑 علی: A♥</span><span>👤 رضا: K♠</span></div></section>
+<section class="glass"><div class="actions"><button class="action" id="refresh">🔄 تازه‌سازی نمایش</button><button class="action" id="sendData">📤 ارسال وضعیت به ربات</button></div></section>
+<div class="notice">نسخه اولیه رابط گرافیکی HokmRush · کارت‌های واقعی و نتیجه مسابقه باید فقط از سرور تأیید شوند.</div>
+</main><div class="toast" id="toast"></div>
+<script>
+const tg=window.Telegram?.WebApp; try{tg?.ready();tg?.expand();}catch(e){}
+const suits=[['♠','black'],['♥','red'],['♣','black'],['♦','red']];
+let hand=[['10','♠'],['10','♥'],['A','♣'],['J','♣'],['8','♣'],['6','♠'],['5','♣'],['7','♦']];let selected=null;
+const $=id=>document.getElementById(id);
+function toast(t){$('toast').textContent=t;$('toast').style.display='block';setTimeout(()=>$('toast').style.display='none',2400)}
+function renderHand(){$('hand').innerHTML='';hand.forEach((c,i)=>{const b=document.createElement('button');b.className='card '+('♥♦'.includes(c[1])?'redcard':'');b.innerHTML=`${c[0]}<span class="suit">${c[1]}</span>`;b.onclick=()=>choose(i);$('hand').appendChild(b)});$('handCount').textContent=hand.length+' کارت'}
+function choose(i){selected=i;const c=hand[i];$('status').textContent=`🎴 کارت انتخاب‌شده: ${c[0]}${c[1]} · این فقط پیش‌نمایش است`;document.querySelectorAll('.card').forEach((b,j)=>b.style.outline=j===i?'3px solid #ffd98a':'none');toast(`کارت ${c[0]}${c[1]} انتخاب شد؛ هنوز بازی واقعی متصل نیست.`)}
+$('refresh').onclick=()=>{selected=null;renderHand();$('status').textContent='⏳ نمایش دوباره بارگذاری شد';toast('نمایش به‌روزرسانی شد')};
+$('sendData').onclick=()=>{const data={action:'miniapp_preview',selected_card:selected===null?null:hand[selected],user_id:tg?.initDataUnsafe?.user?.id||null};if(tg?.sendData){tg.sendData(JSON.stringify(data));toast('اطلاعات پیش‌نمایش به ربات ارسال شد')}else toast('برای ارسال داده، صفحه باید از داخل تلگرام باز شود')};
+renderHand();
+</script></body></html>
